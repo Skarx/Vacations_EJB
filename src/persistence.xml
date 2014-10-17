@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="Data.model.Comments">
+        <table name="comments" schema="public" catalog="postgres"/>
+        <attributes>
+            <id name="id">
+                <column name="id" nullable="false" precision="10"/>
+            </id>
+            <basic name="creadate">
+                <column name="creadate" nullable="false" precision="6"/>
+            </basic>
+            <basic name="comments">
+                <column name="comments" nullable="false" length="500"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Data.model.Employees">
+        <table name="employees" schema="public" catalog="postgres"/>
+        <attributes>
+            <id name="id">
+                <column name="id" nullable="false" precision="10"/>
+            </id>
+            <basic name="lastname">
+                <column name="lastname" nullable="false" length="30"/>
+            </basic>
+            <basic name="firstname">
+                <column name="firstname" nullable="false" length="30"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Data.model.Services">
+        <table name="services" schema="public" catalog="postgres"/>
+        <attributes>
+            <id name="id">
+                <column name="id" nullable="false" precision="10"/>
+            </id>
+            <basic name="name">
+                <column name="name" nullable="false" length="30"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Data.model.Vacations">
+        <table name="vacations" schema="public" catalog="postgres"/>
+        <attributes>
+            <id name="id">
+                <column name="id" nullable="false" precision="10"/>
+            </id>
+            <basic name="begdate">
+                <column name="begdate" nullable="false" precision="13"/>
+            </basic>
+            <basic name="begtime">
+                <column name="begtime" nullable="false" length="20"/>
+            </basic>
+            <basic name="enddate">
+                <column name="enddate" nullable="false" precision="13"/>
+            </basic>
+            <basic name="endtime">
+                <column name="endtime" nullable="false" length="20"/>
+            </basic>
+            <basic name="status">
+                <column name="status" nullable="false" length="20"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
