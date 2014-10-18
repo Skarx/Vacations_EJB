@@ -7,6 +7,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="fa59cfc8-a8ef-4ffb-9f87-2165881fe9eb" />
+          <factory-entry name="Vacations_EJB" value="1ce63e54-b087-4ad3-a47d-572a88a8d674" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>

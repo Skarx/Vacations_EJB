@@ -46,7 +46,32 @@ public class VacationDAO {
         return (List<Vacation>)l;
     }
     //-----------------------------------------------------------------------------
-
+    public List<Vacation> findByManagerId(int managerId){
+        Query query = entityManager.createQuery("" +
+                "SELECT Vacation FROM Vacation Vacation " +
+                "WHERE Vacation.managerId IS " + managerId);
+        return query.getResultList();
+    }
+    //-----------------------------------------------------------------------------
+    public List<Vacation> findByHrId(int hrId){
+        Query query = entityManager.createQuery("" +
+                "SELECT Vacation FROM Vacation Vacation " +
+                "WHERE Vacation.hrId IS " + hrId);
+        return query.getResultList();
+    }
+    //-----------------------------------------------------------------------------
+    public List<Vacation> findByEmployeeId(int employeeId){
+        Query query = entityManager.createQuery("" +
+                "SELECT Vacation FROM Vacation Vacation " +
+                "WHERE Vacation.employeeId IS " + employeeId);
+        return query.getResultList();
+    }
+    //-----------------------------------------------------------------------------
+    public List<Vacation> findByEmployeeAndStatus(){
+        //TODO
+        return null;
+    }
+    //-----------------------------------------------------------------------------
     public Vacation persist(Vacation Vacation){
         entityManager.persist(Vacation);
         return Vacation;

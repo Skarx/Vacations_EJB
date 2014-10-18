@@ -72,7 +72,7 @@
                 <join-column name="employeeid" nullable="false" updatable="true"/>
             </many-to-one>
             <many-to-one name="manager">
-                <join-column name="managerid" nullable="false" updatable="true"/>
+                <join-column name="managerid" nullable="true" updatable="true"/>
             </many-to-one>
             <many-to-one name="hr">
                 <join-column name="hrid" nullable="false" updatable="true"/>
