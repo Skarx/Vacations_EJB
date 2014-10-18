@@ -12,11 +12,7 @@ public class Comments {
     private int id;
     private Timestamp creadate;
     private String comments;
-    @OneToOne
-    private Employees hrEmployee;
-    @OneToOne
-    private Employees mgrEmployee;
-    @OneToOne
+    private Employees creator;
     private Vacations vacation;
 
     @Id
@@ -29,12 +25,21 @@ public class Comments {
         this.id = id;
     }
 
-    public Employees getHrEmployee(){
-        return null;
+    @ManyToOne
+    @JoinColumn(name = "creatorId")
+    public Employees getCreator(){
+        return creator;
     }
-
-    public void setHrEmployee(Employees emp){
-
+    public void setCreator(Employees emp){
+        creator = emp;
+    }
+    @ManyToOne
+    @JoinColumn(name = "vacationId")
+    public Vacations getVacation(){
+        return vacation;
+    }
+    public void setVacation(Vacations vac){
+        vacation = vac;
     }
     @Basic
     @Column(name = "creadate", nullable = false, insertable = true, updatable = true)

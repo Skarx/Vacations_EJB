@@ -1,10 +1,8 @@
 package Data.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
 
 /**
  * Created by Hervé on 17/10/2014.
@@ -17,6 +15,10 @@ public class Vacations {
     private Date enddate;
     private String endtime;
     private String status;
+    private Employees employee;
+    private Employees manager;
+    private Employees hr;
+    private Set<Comments> comments;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -28,6 +30,36 @@ public class Vacations {
         this.id = id;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "employeeId")
+    public Employees getEmployee(){return employee;}
+
+    public void setEmployee(Employees employee){this.employee = employee;}
+
+    @ManyToOne
+    @JoinColumn(name = "managerId")
+
+    public Employees getManager(){return manager;}
+
+    public void setManager(Employees manager){this.manager = manager;}
+
+    @ManyToOne
+    @JoinColumn(name = "hrId")
+    public Employees getHr(){return hr;}
+
+    public void setHr(Employees hr){this.hr = hr;}
+
+    @OneToMany(mappedBy = "vacation")
+    public Set<Comments> getComments(){return comments;}
+
+    public void setComments(Set<Comments> comments) {this.comments = comments;}
+
+    public void addComments(Comments comment){
+        comments.add(comment);
+    }
+    public void removeComments(Comments comment){
+        comments.remove(comment);
+    }
     @Basic
     @Column(name = "begdate", nullable = false, insertable = true, updatable = true)
     public Date getBegdate() {

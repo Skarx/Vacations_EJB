@@ -34,6 +34,8 @@
     <orderEntry type="library" name="Hibernate Validator-5.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0" level="application_server_libraries" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="hibernate-entitymanager" level="project" />
+    <orderEntry type="library" name="postgresql-9.3-1102.jdbc41" level="project" />
   </component>
 </module>
 
