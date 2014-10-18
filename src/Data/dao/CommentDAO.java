@@ -1,18 +1,19 @@
 package Data.dao;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import Data.model.Comments;
+
+import Data.model.Comment;
+
 import java.util.List;
 /**
  * Created by Manfred on 27/10/2014.
  */
 @Stateless
 @LocalBean
-public class CommentsDAO {
+public class CommentDAO {
     //-----------------------------------------------------------------------------
     /**
      * Référence vers le gestionnaire de persistance.
@@ -23,49 +24,49 @@ public class CommentsDAO {
     /**
      * Default constructor.
      */
-    public CommentsDAO()
+    public CommentDAO()
     {
         // TODO Auto-generated constructor stub
     }
     //-----------------------------------------------------------------------------
-    public Comments findById(Integer id)
+    public Comment findById(Integer id)
     {
-        return entityManager.find(Comments.class, id);
+        return entityManager.find(Comment.class, id);
     }
     //----------------------------------------------------------------------------
-    public List<Comments> findAll()
+    public List<Comment> findAll()
     {
         Query query = entityManager.createQuery(
-                "SELECT Comments FROM Comments Comments "
-                        + "ORDER BY Comments.id DESC");
+                "SELECT Comment FROM Comment Comment "
+                        + "ORDER BY Comment.id DESC");
         List l = query.getResultList();
 
-        return (List<Comments>)l;
+        return (List<Comment>)l;
     }
     //-----------------------------------------------------------------------------
 
-    public List<Comments> findByVacation(int vacationId){
+    public List<Comment> findByVacation(int vacationId){
 
         //TODO
         return null;
     }
     //-----------------------------------------------------------------------------
 
-    public  Comments persist(Comments Comments){
-        entityManager.persist(Comments);
-        return Comments;
+    public Comment persist(Comment Comment){
+        entityManager.persist(Comment);
+        return Comment;
 
     }
     //-----------------------------------------------------------------------------
 
-    public Comments update (Comments Comments){
-        return entityManager.merge(Comments);
+    public Comment update (Comment Comment){
+        return entityManager.merge(Comment);
 
     }
     //-----------------------------------------------------------------------------
 
-    public void remove(Comments Comments){
-        entityManager.remove(entityManager.merge(Comments));
+    public void remove(Comment Comment){
+        entityManager.remove(entityManager.merge(Comment));
     }
 
 }

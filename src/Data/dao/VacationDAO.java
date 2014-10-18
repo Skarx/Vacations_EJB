@@ -1,11 +1,12 @@
 package Data.dao;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import Data.model.Vacations;
+
+import Data.model.Vacation;
+
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Stateless
 @LocalBean
-public class VacationsDAO {
+public class VacationDAO {
     //-----------------------------------------------------------------------------
     /**
      * Référence vers le gestionnaire de persistance.
@@ -25,42 +26,42 @@ public class VacationsDAO {
     /**
      * Default constructor.
      */
-    public VacationsDAO()
+    public VacationDAO()
     {
         // TODO Auto-generated constructor stub
     }
     //-----------------------------------------------------------------------------
-    public Vacations findById(Integer id)
+    public Vacation findById(Integer id)
     {
-        return entityManager.find(Vacations.class, id);
+        return entityManager.find(Vacation.class, id);
     }
     //----------------------------------------------------------------------------
-    public List<Vacations> findAll()
+    public List<Vacation> findAll()
     {
         Query query = entityManager.createQuery(
-                "SELECT Vacations FROM Vacations Vacations "
-                        + "ORDER BY Vacations.id DESC");
+                "SELECT Vacation FROM Vacation Vacation "
+                        + "ORDER BY Vacation.id DESC");
         List l = query.getResultList();
 
-        return (List<Vacations>)l;
+        return (List<Vacation>)l;
     }
     //-----------------------------------------------------------------------------
 
-    public  Vacations persist(Vacations Vacations){
-        entityManager.persist(Vacations);
-        return Vacations;
-
-    }
-    //-----------------------------------------------------------------------------
-
-    public Vacations update (Vacations Vacations){
-        return entityManager.merge(Vacations);
+    public Vacation persist(Vacation Vacation){
+        entityManager.persist(Vacation);
+        return Vacation;
 
     }
     //-----------------------------------------------------------------------------
 
-    public void remove(Vacations Vacations){
-        entityManager.remove(entityManager.merge(Vacations));
+    public Vacation update (Vacation Vacation){
+        return entityManager.merge(Vacation);
+
+    }
+    //-----------------------------------------------------------------------------
+
+    public void remove(Vacation Vacation){
+        entityManager.remove(entityManager.merge(Vacation));
     }
 
 }

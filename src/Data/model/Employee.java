@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * Created by Hervé on 17/10/2014.
  */
 @Entity
-public class Employees {
+public class Employee {
     private int id;
     private String lastname;
     private String firstname;
@@ -49,11 +49,11 @@ public class Employees {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Employees employees = (Employees) o;
+        Employee employee = (Employee) o;
 
-        if (id != employees.id) return false;
-        if (firstname != null ? !firstname.equals(employees.firstname) : employees.firstname != null) return false;
-        if (lastname != null ? !lastname.equals(employees.lastname) : employees.lastname != null) return false;
+        if (id != employee.id) return false;
+        if (firstname != null ? !firstname.equals(employee.firstname) : employee.firstname != null) return false;
+        if (lastname != null ? !lastname.equals(employee.lastname) : employee.lastname != null) return false;
 
         return true;
     }
