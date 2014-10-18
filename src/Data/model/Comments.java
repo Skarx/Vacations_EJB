@@ -1,9 +1,7 @@
 package Data.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.jws.Oneway;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -14,6 +12,12 @@ public class Comments {
     private int id;
     private Timestamp creadate;
     private String comments;
+    @OneToOne
+    private Employees hrEmployee;
+    @OneToOne
+    private Employees mgrEmployee;
+    @OneToOne
+    private Vacations vacation;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -25,6 +29,13 @@ public class Comments {
         this.id = id;
     }
 
+    public Employees getHrEmployee(){
+        return null;
+    }
+
+    public void setHrEmployee(Employees emp){
+
+    }
     @Basic
     @Column(name = "creadate", nullable = false, insertable = true, updatable = true)
     public Timestamp getCreadate() {
