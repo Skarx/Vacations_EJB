@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * Created by Hervé on 17/10/2014.
  */
 @Entity
-public class Services {
+public class Service {
     private int id;
     private String name;
 
@@ -38,7 +38,7 @@ public class Services {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Services services = (Services) o;
+        Service services = (Service) o;
 
         if (id != services.id) return false;
         if (name != null ? !name.equals(services.name) : services.name != null) return false;

@@ -9,10 +9,11 @@ import javax.persistence.Id;
  * Created by Hervé on 17/10/2014.
  */
 @Entity
-public class Employees {
+public class Employee {
     private int id;
     private String lastname;
     private String firstname;
+    private Service service;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -44,12 +45,14 @@ public class Employees {
         this.firstname = firstname;
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Employees employees = (Employees) o;
+        Employee employees = (Employee) o;
 
         if (id != employees.id) return false;
         if (firstname != null ? !firstname.equals(employees.firstname) : employees.firstname != null) return false;
