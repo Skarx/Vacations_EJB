@@ -2,8 +2,8 @@
 <entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
         version="2.0">
 
-    <entity class="Data.model.Comments">
-        <table name="comments" schema="public" catalog="postgres"/>
+    <entity class="Data.model.Comment">
+        <table name="comment" schema="public" catalog="postgres"/>
         <attributes>
             <id name="id">
                 <column name="id" nullable="false" precision="10"/>
@@ -22,8 +22,8 @@
             </many-to-one>
         </attributes>
     </entity>
-    <entity class="Data.model.Employees">
-        <table name="employees" schema="public" catalog="postgres"/>
+    <entity class="Data.model.Employee">
+        <table name="employee" schema="public" catalog="postgres"/>
         <attributes>
             <id name="id">
                 <column name="id" nullable="false" precision="10"/>
@@ -36,8 +36,8 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="Data.model.Services">
-        <table name="services" schema="public" catalog="postgres"/>
+    <entity class="Data.model.Service">
+        <table name="service" schema="public" catalog="postgres"/>
         <attributes>
             <id name="id">
                 <column name="id" nullable="false" precision="10"/>
@@ -47,8 +47,8 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="Data.model.Vacations">
-        <table name="vacations" schema="public" catalog="postgres"/>
+    <entity class="Data.model.Vacation">
+        <table name="vacation" schema="public" catalog="postgres"/>
         <attributes>
             <id name="id">
                 <column name="id" nullable="false" precision="10"/>
@@ -78,7 +78,7 @@
                 <join-column name="hrid" nullable="false" updatable="true"/>
             </many-to-one>
             <one-to-many name="comments">
-                <join-table name="comments" />
+                <join-table name="comment" />
             </one-to-many>
         </attributes>
     </entity>

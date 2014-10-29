@@ -38,10 +38,10 @@ public class Service {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Service services = (Service) o;
+        Service service = (Service) o;
 
-        if (id != services.id) return false;
-        if (name != null ? !name.equals(services.name) : services.name != null) return false;
+        if (id != service.id) return false;
+        if (name != null ? !name.equals(service.name) : service.name != null) return false;
 
         return true;
     }

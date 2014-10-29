@@ -8,17 +8,17 @@ import java.util.Set;
  * Created by Hervé on 17/10/2014.
  */
 @Entity
-public class Vacations {
+public class Vacation {
     private int id;
     private Date begdate;
     private String begtime;
     private Date enddate;
     private String endtime;
     private String status;
-    private Employees employee;
-    private Employees manager;
-    private Employees hr;
-    private Set<Comments> comments;
+    private Employee employee;
+    private Employee manager;
+    private Employee hr;
+    private Set<Comment> comments;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -32,32 +32,32 @@ public class Vacations {
 
     @ManyToOne
     @JoinColumn(name = "employeeId")
-    public Employees getEmployee(){return employee;}
+    public Employee getEmployee(){return employee;}
 
-    public void setEmployee(Employees employee){this.employee = employee;}
+    public void setEmployee(Employee employee){this.employee = employee;}
 
     @ManyToOne
     @JoinColumn(name = "managerId")
 
-    public Employees getManager(){return manager;}
+    public Employee getManager(){return manager;}
 
-    public void setManager(Employees manager){this.manager = manager;}
+    public void setManager(Employee manager){this.manager = manager;}
 
     @ManyToOne
     @JoinColumn(name = "hrId")
-    public Employees getHr(){return hr;}
+    public Employee getHr(){return hr;}
 
-    public void setHr(Employees hr){this.hr = hr;}
+    public void setHr(Employee hr){this.hr = hr;}
 
     @OneToMany(mappedBy = "vacation")
-    public Set<Comments> getComments(){return comments;}
+    public Set<Comment> getComments(){return comments;}
 
-    public void setComments(Set<Comments> comments) {this.comments = comments;}
+    public void setComments(Set<Comment> comments) {this.comments = comments;}
 
-    public void addComments(Comments comment){
+    public void addComments(Comment comment){
         comments.add(comment);
     }
-    public void removeComments(Comments comment){
+    public void removeComments(Comment comment){
         comments.remove(comment);
     }
     @Basic
@@ -115,14 +115,14 @@ public class Vacations {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Vacations vacations = (Vacations) o;
+        Vacation vacation = (Vacation) o;
 
-        if (id != vacations.id) return false;
-        if (begdate != null ? !begdate.equals(vacations.begdate) : vacations.begdate != null) return false;
-        if (begtime != null ? !begtime.equals(vacations.begtime) : vacations.begtime != null) return false;
-        if (enddate != null ? !enddate.equals(vacations.enddate) : vacations.enddate != null) return false;
-        if (endtime != null ? !endtime.equals(vacations.endtime) : vacations.endtime != null) return false;
-        if (status != null ? !status.equals(vacations.status) : vacations.status != null) return false;
+        if (id != vacation.id) return false;
+        if (begdate != null ? !begdate.equals(vacation.begdate) : vacation.begdate != null) return false;
+        if (begtime != null ? !begtime.equals(vacation.begtime) : vacation.begtime != null) return false;
+        if (enddate != null ? !enddate.equals(vacation.enddate) : vacation.enddate != null) return false;
+        if (endtime != null ? !endtime.equals(vacation.endtime) : vacation.endtime != null) return false;
+        if (status != null ? !status.equals(vacation.status) : vacation.status != null) return false;
 
         return true;
     }

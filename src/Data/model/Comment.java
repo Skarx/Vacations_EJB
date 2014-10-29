@@ -1,6 +1,5 @@
 package Data.model;
 
-import javax.jws.Oneway;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -8,12 +7,12 @@ import java.sql.Timestamp;
  * Created by Hervé on 17/10/2014.
  */
 @Entity
-public class Comments {
+public class Comment {
     private int id;
     private Timestamp creadate;
     private String comments;
-    private Employees creator;
-    private Vacations vacation;
+    private Employee creator;
+    private Vacation vacation;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -27,18 +26,18 @@ public class Comments {
 
     @ManyToOne
     @JoinColumn(name = "creatorId")
-    public Employees getCreator(){
+    public Employee getCreator(){
         return creator;
     }
-    public void setCreator(Employees emp){
+    public void setCreator(Employee emp){
         creator = emp;
     }
     @ManyToOne
     @JoinColumn(name = "vacationId")
-    public Vacations getVacation(){
+    public Vacation getVacation(){
         return vacation;
     }
-    public void setVacation(Vacations vac){
+    public void setVacation(Vacation vac){
         vacation = vac;
     }
     @Basic
@@ -66,11 +65,11 @@ public class Comments {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Comments comments1 = (Comments) o;
+        Comment comment1 = (Comment) o;
 
-        if (id != comments1.id) return false;
-        if (comments != null ? !comments.equals(comments1.comments) : comments1.comments != null) return false;
-        if (creadate != null ? !creadate.equals(comments1.creadate) : comments1.creadate != null) return false;
+        if (id != comment1.id) return false;
+        if (comments != null ? !comments.equals(comment1.comments) : comment1.comments != null) return false;
+        if (creadate != null ? !creadate.equals(comment1.creadate) : comment1.creadate != null) return false;
 
         return true;
     }

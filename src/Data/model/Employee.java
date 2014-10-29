@@ -45,18 +45,16 @@ public class Employee {
         this.firstname = firstname;
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Employee employees = (Employee) o;
+        Employee employee = (Employee) o;
 
-        if (id != employees.id) return false;
-        if (firstname != null ? !firstname.equals(employees.firstname) : employees.firstname != null) return false;
-        if (lastname != null ? !lastname.equals(employees.lastname) : employees.lastname != null) return false;
+        if (id != employee.id) return false;
+        if (firstname != null ? !firstname.equals(employee.firstname) : employee.firstname != null) return false;
+        if (lastname != null ? !lastname.equals(employee.lastname) : employee.lastname != null) return false;
 
         return true;
     }

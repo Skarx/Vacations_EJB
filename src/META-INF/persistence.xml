@@ -4,10 +4,10 @@
     <persistence-unit name="Vacations_EJB">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <mapping-file>META-INF/orm.xml</mapping-file>
-        <class>Data.model.Comments</class>
-        <class>Data.model.Employees</class>
-        <class>Data.model.Services</class>
-        <class>Data.model.Vacations</class>
+        <class>Data.model.Comment</class>
+        <class>Data.model.Employee</class>
+        <class>Data.model.Service</class>
+        <class>Data.model.Vacation</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
